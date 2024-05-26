@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo de adivinhar</title>
+    <link rel="stylesheet" href="style.class">
+    <style>
+        .container {
+            background-color: aqua;
+            padding: 40px;
+            border-radius: 50%;
+            width: 320px;
+            
+        }
+        body {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container"> 
+            <h1> adivinhe qual número estou pensando</h1>
+            <input id="inputzinho" type="text" placeholder="Adivinhe">
+            <button id="botao" onclick="guessoption()">Adivinhe</button>
+            <br>
+            <p id ="a"></p>
+
+    </center>
+<script>
+    let vidas = 10;
+    randomnumber1 = 57
+    function guessoption() {
+        vidas--;
+        const paragrafo1 = document.getElementById("a");
+        const inputzin = document.getElementById("inputzinho");
+        const guess = Number(inputzin.value);
+        const botao2 = document.getElementById("botao");
+if(guess === randomnumber1) {
+  paragrafo1.innerHTML = "Você venceu PARABÉNS!!!";
+  paragrafo1.style.color = "green";
+  botao2.disabled = true;
+inputzin.disabled = true;
+}
+if (guess > randomnumber1) {
+    paragrafo1.innerHTML = "Chute mais baixo, o número está alto " + "suas vidas: " + vidas;
+    paragrafo1.style.color = "red";
+}
+if(guess < randomnumber1) {
+    paragrafo1.innerHTML = "Você chutou um número muito pequeno, tente algo maior " + "suas vidas: " + vidas;
+    paragrafo1.style.color = "red";
+}
+if(vidas === 0) {
+botao2.disabled = true;
+inputzin.disabled = true;
+paragrafo1.innerHTML = "Você perdeu :(";
+paragrafo1.style.color = "purple";
+}
+
+
+    }
+</script>
+</div>
+</body>
+</html>
